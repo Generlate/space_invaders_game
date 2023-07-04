@@ -22,7 +22,7 @@ def collide(object1, object2):
 
 def main():
     run = True
-    FRAMESPERSECOND = 60
+    framespersecond = 60
     level = 0
     lives = 5
     main_font = pygame.font.SysFont("SegoeUI", 50)
@@ -63,7 +63,7 @@ def main():
         pygame.display.update()
 
     while run:
-        clock.tick(FRAMESPERSECOND)
+        clock.tick(framespersecond)
         redraw_window()
 
         if lives <= 0 or player.health <= 0:
@@ -71,7 +71,7 @@ def main():
             lost_count += 1
 
         if lost:
-            if lost_count > FRAMESPERSECOND * 3:
+            if lost_count > framespersecond * 3:
                 run = False
             else:
                 continue

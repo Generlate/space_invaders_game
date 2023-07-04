@@ -14,7 +14,7 @@ BLUE_LASER = pygame.image.load(os.path.join("assets", "blue_laser.png"))
 
 
 class Enemy(Ship):
-    COLOR_MAP = {
+    color_map = {
                 "red": (RED_SPACE_SHIP, RED_LASER),
                 "green": (GREEN_SPACE_SHIP, GREEN_LASER),
                 "blue": (BLUE_SPACE_SHIP, BLUE_LASER)
@@ -22,7 +22,7 @@ class Enemy(Ship):
 
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
-        self.ship_image, self.laser_image = self.COLOR_MAP[color]
+        self.ship_image, self.laser_image = self.color_map[color]
         self.mask = pygame.mask.from_surface(self.ship_image)
 
     def move(self, velocity):
