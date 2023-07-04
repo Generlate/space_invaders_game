@@ -4,13 +4,13 @@ from utils.ship import Ship
 from utils.laser import Laser
 
 
-RED_SPACE_SHIP = pygame.image.load(os.path.join("assets", "pixel_ship_red_small.png"))
-GREEN_SPACE_SHIP = pygame.image.load(os.path.join("assets", "pixel_ship_green_small.png"))
-BLUE_SPACE_SHIP = pygame.image.load(os.path.join("assets", "pixel_ship_blue_small.png"))
+RED_SPACE_SHIP = pygame.image.load(os.path.join("assets", "red_space_ship.png"))
+GREEN_SPACE_SHIP = pygame.image.load(os.path.join("assets", "green_space_ship.png"))
+BLUE_SPACE_SHIP = pygame.image.load(os.path.join("assets", "blue_space_ship.png"))
 
-RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
-GREEN_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_green.png"))
-BLUE_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_blue.png"))
+RED_LASER = pygame.image.load(os.path.join("assets", "red_laser.png"))
+GREEN_LASER = pygame.image.load(os.path.join("assets", "green_laser.png"))
+BLUE_LASER = pygame.image.load(os.path.join("assets", "blue_laser.png"))
 
 
 class Enemy(Ship):
@@ -22,14 +22,14 @@ class Enemy(Ship):
 
     def __init__(self, x, y, color, health=100):
         super().__init__(x, y, health)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self.mask = pygame.mask.from_surface(self.ship_img)
+        self.ship_image, self.laser_image = self.COLOR_MAP[color]
+        self.mask = pygame.mask.from_surface(self.ship_image)
 
-    def move(self, vel):
-        self.y += vel
+    def move(self, velocity):
+        self.y += velocity
 
         def shoot(self):
             if self.cool_down_counter == 0:
-                laser = Laser(self.x-18, self.y, self.laser_img)
+                laser = Laser(self.x-18, self.y, self.laser_image)
                 self.lasers.append(laser)
                 self.cool_down_counter = 1
