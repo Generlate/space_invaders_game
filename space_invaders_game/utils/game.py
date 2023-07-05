@@ -44,7 +44,7 @@ def main():
 
     def redraw_window():
         WINDOW.blit(BACKGROUND, (0, 0))
-        # draw text
+        # Draw text.
         lives_label = main_font.render(f"Lives: {lives}", 1, (255, 255, 255))
         level_label = main_font.render(f"Level: {level}", 1, (255, 255, 255))
 
@@ -79,6 +79,7 @@ def main():
         if len(enemies) == 0:
             level += 1
             wave_length += 5
+            # Create new enemies each wave.
             for i in range(wave_length):
                 enemies = [Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
                            for _ in range(wave_length)]
@@ -88,13 +89,17 @@ def main():
                 quit()
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_a] and player.x - player_velocity > 0:  # left
+        # Move yellow ship to the left.
+        if keys[pygame.K_a] and player.x - player_velocity > 0:
             player.x -= player_velocity
-        if keys[pygame.K_d] and player.x + player_velocity + player.get_width() < WIDTH:  # right
+        # Move yellow ship to the right.
+        if keys[pygame.K_d] and player.x + player_velocity + player.get_width() < WIDTH:
             player.x += player_velocity
-        if keys[pygame.K_w] and player.y - player_velocity > 0:  # up
+        # Move yellow ship up.
+        if keys[pygame.K_w] and player.y - player_velocity > 0:
             player.y -= player_velocity
-        if keys[pygame.K_s] and player.y + player_velocity + player.get_height() + 15 < HEIGHT:  # down
+        # Move yellow ship down.
+        if keys[pygame.K_s] and player.y + player_velocity + player.get_height() + 15 < HEIGHT:
             player.y += player_velocity
         if keys[pygame.K_SPACE]:
             player.shoot()
@@ -133,4 +138,5 @@ def main_menu():
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 main()
+    # Quit pygame when the main menu loop is exited
     pygame.quit()

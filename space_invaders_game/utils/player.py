@@ -13,6 +13,7 @@ class Player(Ship):
         super().__init__(x, y, health)
         self.ship_image = YELLOW_SPACE_SHIP
         self.laser_image = YELLOW_LASER
+        # Create a mask for collision detection using the ship image
         self.mask = pygame.mask.from_surface(self.ship_image)
         self.max_health = health
 
@@ -20,6 +21,7 @@ class Player(Ship):
         self.shoot_cooldown()
         for laser in self.lasers:
             laser.move(velocity)
+            # Remove the laser from the list if it's off the screen
             if laser.off_screen(HEIGHT):
                 self.lasers.remove(laser)
             else:
@@ -27,9 +29,11 @@ class Player(Ship):
                     if laser.collision(object):
                         objects.remove(object)
                         if laser in self.lasers:
+                            # Remove the laser from the list if it caused a collision
                             self.lasers.remove(laser)
 
     def spawn(self, window):
+        # spawn the yellow ship on the window
         super().spawn(window)
         self.healthbar(window)
 
