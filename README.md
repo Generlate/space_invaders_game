@@ -1,8 +1,7 @@
 ## Directions
-- (Windows) Double click the exe file to play.
-- (Linux) cd to the the /Space-Invaders-Game/
-- (Linux) open the directory in terminal
-- (Linux) execute python3 'Space Invaders Game.py'
+- change directory to the the /Space-Invaders-Game/
+- open the directory in terminal
+- run python3 'Space Invaders Game.py'
 
 ## Dependencies
 - Pygame
