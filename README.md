@@ -3,6 +3,10 @@
 - open the directory in terminal
 - run python3 'Space Invaders Game.py'
 
+'''
+Space Invaders Game.py
+'''
+
 ## Dependencies
 - Pygame
 
