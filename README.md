@@ -6,7 +6,7 @@ python3 main.py
 ```
 
 ## Dependencies
-- Python
+- Python3
 - Pygame
 
 ## Features To Come
