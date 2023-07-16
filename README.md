@@ -17,6 +17,5 @@ python3 main.py
 
 
 <div class="image-container">
-  <img id="image1" src="https://github.com/Generlate/space_invaders_game/blob/main/assets/background_black.png?raw=true" alt="Image 1">
-  <img id="image2" src="https://github.com/Generlate/space_invaders_game/blob/main/assets/yellow_space_ship.png?raw=true" alt="Image 2" padding-left=100px>
+  <img id="image1" src="https://github.com/Generlate/space_invaders_game/blob/main/assets/background_black.png?raw=true" alt="Image 1" width="500>
 </div>
