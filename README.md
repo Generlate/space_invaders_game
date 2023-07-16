@@ -1,15 +1,13 @@
 ## Directions
-- change directory to the the /Space-Invaders-Game/
-- open the directory in terminal
-- run python3 'Space Invaders Game.py'
-
-```
-Space Invaders Game.py
+- open the /space_invaders_game/ in the terminal
+- run ```
+python3 main.py
 ```
 
 
 
 ## Dependencies
+- Python
 - Pygame
 
 ## Features To Come
