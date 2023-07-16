@@ -1,6 +1,7 @@
 ## Directions
 - open the /space_invaders_game/ in the terminal
-- run ```
+- run 
+```
 python3 main.py
 ```
 
