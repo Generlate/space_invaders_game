@@ -1,9 +1,6 @@
 ## Directions
 - open /space_invaders_game/ in the terminal
-- run 
-```
-python3 main.py
-```
+- run ```python3 main.py```
 
 ## Dependencies
 - Python3
