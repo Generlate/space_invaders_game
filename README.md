@@ -9,6 +9,4 @@
 ## Features To Come
 - not currently being developed.  
 
-<div class="image-container">
-  <img id="image1" src="https://github.com/Generlate/space_invaders_game/blob/main/assets/background_black.png?raw=true" alt="Image 1" width="900">
-</div>
+![Recording 2023-07-17 051911](https://github.com/Generlate/space_invaders_game/assets/85384584/3190b340-dda7-4f9d-b1b4-cdc85f52c5ae)
