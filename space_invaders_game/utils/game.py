@@ -11,8 +11,10 @@ WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Invaders Game")
 
 
-BACKGROUND = pygame.transform.scale(pygame.image.load(
-    os.path.join("assets", "background_black.png")), (WIDTH, HEIGHT))
+BACKGROUND = pygame.transform.scale(
+    pygame.image.load(os.path.join("assets", "background_black.png")),
+    (WIDTH, HEIGHT),
+)
 
 
 def collide(object1, object2):
@@ -59,7 +61,9 @@ def main():
 
         if lost:
             lost_label = lost_font.render("You Lose!!", 1, (255, 255, 255))
-            WINDOW.blit(lost_label, (WIDTH/2 - lost_label.get_width()/2, 350))
+            WINDOW.blit(
+                lost_label, (WIDTH / 2 - lost_label.get_width() / 2, 350)
+            )
 
         pygame.display.update()
 
@@ -82,8 +86,14 @@ def main():
             wave_length += 5
             # Create new enemies each wave.
             for i in range(wave_length):
-                enemies = [Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
-                           for _ in range(wave_length)]
+                enemies = [
+                    Enemy(
+                        random.randrange(50, WIDTH - 100),
+                        random.randrange(-1500, -100),
+                        random.choice(["red", "blue", "green"]),
+                    )
+                    for _ in range(wave_length)
+                ]
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -94,13 +104,19 @@ def main():
         if keys[pygame.K_a] and player.x - player_velocity > 0:
             player.x -= player_velocity
         # Move yellow ship to the right.
-        if keys[pygame.K_d] and player.x + player_velocity + player.get_width() < WIDTH:
+        if (
+            keys[pygame.K_d]
+            and player.x + player_velocity + player.get_width() < WIDTH
+        ):
             player.x += player_velocity
         # Move yellow ship up.
         if keys[pygame.K_w] and player.y - player_velocity > 0:
             player.y -= player_velocity
         # Move yellow ship down.
-        if keys[pygame.K_s] and player.y + player_velocity + player.get_height() + 15 < HEIGHT:
+        if (
+            keys[pygame.K_s]
+            and player.y + player_velocity + player.get_height() + 15 < HEIGHT
+        ):
             player.y += player_velocity
         if keys[pygame.K_SPACE]:
             player.shoot()
@@ -109,7 +125,7 @@ def main():
             enemy.move(enemy_velocity)
             enemy.move_lasers(laser_velocity, player)
 
-            if random.randrange(0, 2*60) == 1:
+            if random.randrange(0, 2 * 60) == 1:
                 enemy.shoot()
 
             if collide(enemy, player):
@@ -128,14 +144,23 @@ def main_menu():
     while run:
         WINDOW.blit(BACKGROUND, (0, 0))
         title_label = title_font.render(
-            "Press the mouse to begin...", 1, (255, 255, 255))
-        WINDOW.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 350))
+            "Press the mouse to begin...", 1, (255, 255, 255)
+        )
+        WINDOW.blit(
+            title_label, (WIDTH / 2 - title_label.get_width() / 2, 350)
+        )
         title_label = title_font.render(
-            "Use 'wasd' to move", 1, (255, 255, 255))
-        WINDOW.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 500))
+            "Use 'wasd' to move", 1, (255, 255, 255)
+        )
+        WINDOW.blit(
+            title_label, (WIDTH / 2 - title_label.get_width() / 2, 500)
+        )
         title_label = title_font.render(
-            "and space bar to shoot", 1, (255, 255, 255))
-        WINDOW.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 550))
+            "and space bar to shoot", 1, (255, 255, 255)
+        )
+        WINDOW.blit(
+            title_label, (WIDTH / 2 - title_label.get_width() / 2, 550)
+        )
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
