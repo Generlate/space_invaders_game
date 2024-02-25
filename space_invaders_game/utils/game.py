@@ -11,7 +11,8 @@ WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Invaders Game")
 
 
-BACKGROUND = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background_black.png")), (WIDTH, HEIGHT))
+BACKGROUND = pygame.transform.scale(pygame.image.load(
+    os.path.join("assets", "background_black.png")), (WIDTH, HEIGHT))
 
 
 def collide(object1, object2):
@@ -126,11 +127,14 @@ def main_menu():
     run = True
     while run:
         WINDOW.blit(BACKGROUND, (0, 0))
-        title_label = title_font.render("Press the mouse to begin...", 1, (255, 255, 255))
+        title_label = title_font.render(
+            "Press the mouse to begin...", 1, (255, 255, 255))
         WINDOW.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 350))
-        title_label = title_font.render("Use 'wasd' to move", 1, (255, 255, 255))
+        title_label = title_font.render(
+            "Use 'wasd' to move", 1, (255, 255, 255))
         WINDOW.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 500))
-        title_label = title_font.render("and space bar to shoot", 1, (255, 255, 255))
+        title_label = title_font.render(
+            "and space bar to shoot", 1, (255, 255, 255))
         WINDOW.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 550))
         pygame.display.update()
         for event in pygame.event.get():

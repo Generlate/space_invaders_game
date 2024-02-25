@@ -4,7 +4,8 @@ from utils.ship import Ship
 
 WIDTH, HEIGHT = 750, 750
 
-YELLOW_SPACE_SHIP = pygame.image.load(os.path.join("assets", "yellow_space_ship.png"))
+YELLOW_SPACE_SHIP = pygame.image.load(
+    os.path.join("assets", "yellow_space_ship.png"))
 YELLOW_LASER = pygame.image.load(os.path.join("assets", "yellow_laser.png"))
 
 
@@ -38,5 +39,7 @@ class Player(Ship):
         self.healthbar(window)
 
     def healthbar(self, window):
-        pygame.draw.rect(window, (255, 0, 0), (self.x, self.y + self.ship_image.get_height() + 10, self.ship_image.get_width(), 10))
-        pygame.draw.rect(window, (0, 255, 0), (self.x, self.y + self.ship_image.get_height() + 10, self.ship_image.get_width() * (self.health/self.max_health), 10))
+        pygame.draw.rect(window, (255, 0, 0), (self.x, self.y +
+                         self.ship_image.get_height() + 10, self.ship_image.get_width(), 10))
+        pygame.draw.rect(window, (0, 255, 0), (self.x, self.y + self.ship_image.get_height() +
+                         10, self.ship_image.get_width() * (self.health/self.max_health), 10))
