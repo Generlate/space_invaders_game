@@ -1,3 +1,5 @@
+"""This module defines the Player class and its methods."""
+
 import pygame
 import os
 from utils.ship import Ship
@@ -11,7 +13,10 @@ YELLOW_LASER = pygame.image.load(os.path.join("assets", "yellow_laser.png"))
 
 
 class Player(Ship):
+    """The user's ship, can spawn, shoot lasers and has a health bar."""
+
     def __init__(self, x, y, health=100):
+        """Initializes the player with a ship, laser and health."""
         super().__init__(x, y, health)
         self.ship_image = YELLOW_SPACE_SHIP
         self.laser_image = YELLOW_LASER
@@ -20,6 +25,7 @@ class Player(Ship):
         self.max_health = health
 
     def move_lasers(self, velocity, objects):
+        """spawn a laser and update its position. Removes the laser if it is off screen or collides."""
         self.shoot_cooldown()
         for laser in self.lasers:
             laser.move(velocity)
@@ -35,11 +41,12 @@ class Player(Ship):
                             self.lasers.remove(laser)
 
     def spawn(self, window):
-        # spawn the yellow ship on the window
+        """Spawns the yellow ship on the window."""
         super().spawn(window)
         self.healthbar(window)
 
     def healthbar(self, window):
+        """Represents the player's health."""
         pygame.draw.rect(
             window,
             (255, 0, 0),

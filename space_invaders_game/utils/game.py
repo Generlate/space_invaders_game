@@ -1,3 +1,5 @@
+"""This module defines the intro screen and the game play."""
+
 import pygame
 import os
 import random
@@ -18,12 +20,14 @@ BACKGROUND = pygame.transform.scale(
 
 
 def collide(object1, object2):
+    """Takes object1 and object2 and returns True if they are overlapping."""
     offset_x = object2.x - object1.x
     offset_y = object2.y - object1.y
     return object1.mask.overlap(object2.mask, (offset_x, offset_y)) is not None
 
 
 def main():
+    """The game's event loop."""
     run = True
     framespersecond = 60
     level = 0
@@ -46,6 +50,7 @@ def main():
     lost_count = 0
 
     def redraw_window():
+        """Update the window with new enemies, current lives, the player's ship and text."""
         WINDOW.blit(BACKGROUND, (0, 0))
         # Draw text.
         lives_label = main_font.render(f"Lives: {lives}", 1, (255, 255, 255))
@@ -139,6 +144,7 @@ def main():
 
 
 def main_menu():
+    """Spawn the starting text."""
     title_font = pygame.font.SysFont("SegoeUI", 50)
     run = True
     while run:
@@ -167,5 +173,4 @@ def main_menu():
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 main()
-    # Quit pygame when the main menu loop is exited
     pygame.quit()

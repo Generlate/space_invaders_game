@@ -1,10 +1,11 @@
+"""This module defines the Enemy class and its methods."""
+
 import pygame
 import os
 from utils.ship import Ship
 from utils.laser import Laser
 
 
-# Loads and assigns the image path and joins the directory name to the file name.
 RED_SPACE_SHIP = pygame.image.load(
     os.path.join("assets", "red_space_ship.png")
 )
@@ -21,19 +22,22 @@ BLUE_LASER = pygame.image.load(os.path.join("assets", "blue_laser.png"))
 
 
 class Enemy(Ship):
+    """Enemies can spawn as either red, green or blue. They can move and shoot."""
+
     color_map = {
         "red": (RED_SPACE_SHIP, RED_LASER),
         "green": (GREEN_SPACE_SHIP, GREEN_LASER),
         "blue": (BLUE_SPACE_SHIP, BLUE_LASER),
     }
 
-    # Allows enemies of different colors to be made.
     def __init__(self, x, y, color, health=100):
+        """Initialize enemies of different colors."""
         super().__init__(x, y, health)
         self.ship_image, self.laser_image = self.color_map[color]
         self.mask = pygame.mask.from_surface(self.ship_image)
 
     def move(self, velocity):
+        """Update the enemy's position."""
         self.y += velocity
 
         def shoot(self):
